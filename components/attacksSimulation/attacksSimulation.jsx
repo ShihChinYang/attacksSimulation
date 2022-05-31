@@ -5,6 +5,10 @@ export default function AttacksSimulation() {
     const maxPoints = 7;
     const levels = [styles.explosionSmall, styles.explosionMedian, styles.explosionLarge];
 
+    const [attacks, setAttacks] = useState([]);
+    const [animate, setAnimate] = useState(false);
+    const [flag, setFlag] = useState(true);
+
     const startStopAnimation = () => {
         console.log("Hello");
         setAnimate(!animate);
@@ -16,6 +20,13 @@ export default function AttacksSimulation() {
 
     const onAnimationEnd = (e) => {
         console.log("Ended", e.target.id);
+        let attacksCopy = [...attacks];
+        attacksCopy[0]={
+            top : 10 + Math.floor(Math.random() * 80),
+            left : 10 + Math.floor(Math.random() * 80),
+            delay : 0%3,
+            level : levels[0%3] }
+        setAttacks(attacksCopy);
     }
 
     const points = [];
@@ -28,13 +39,9 @@ export default function AttacksSimulation() {
         points.push(point);
     }
     
-    const [attacks, setAttacks] = useState([]);
-
-    const [animate, setAnimate] = useState(false);
-
     useEffect(() => {
         setAttacks(points);
-    }, [])
+    }, [flag])
 
 
     return (
