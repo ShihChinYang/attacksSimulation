@@ -11,7 +11,11 @@
   "dependencies": {
     "next": "12.1.6",
     "react": "18.1.0",
-    "react-dom": "18.1.0"
+    "react-dom": "18.1.0",
+    "react-type-animation": "^1.1.3",
+    "react-typed": "^1.2.0",
+    "react-typewriter-effect": "^1.1.0",
+    "react-typist": "^2.0.5"
   },
   "devDependencies": {
     "eslint": "8.16.0",
